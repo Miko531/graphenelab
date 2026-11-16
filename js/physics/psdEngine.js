@@ -1,0 +1,2 @@
+import {fft} from './fftEngine.js';
+export function welch(data,fs=1,segment=256,overlap=.5){const n=Math.min(segment,data.length),step=Math.max(1,Math.floor(n*(1-overlap))),bins=Math.floor(n/2)+1,avg=new Float64Array(bins);let count=0;for(let start=0;start+n<=data.length;start+=step){const part=data.slice(start,start+n),f=fft(part),scale=fs*n;for(let i=0;i<bins;i++)avg[i]+=(f.re[i]**2+f.im[i]**2)/scale;count++}return Array.from(avg, (v,i)=>({x:i*fs/n,y:count?v/count:0}));}

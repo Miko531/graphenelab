@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GrapheneLab — віртуальна лабораторія графену, транзисторів і шумів">
+  <title>GrapheneLab | Інженерна лабораторія</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/charts.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">GL</span><div><strong>GrapheneLab</strong><small>Інженерна лабораторія матеріалів</small></div></div>
+    <div class="top-actions"><span id="statusBadge" class="status ready">ГОТОВО</span><button id="themeToggle" class="icon-button" title="Змінити тему">☼</button><button id="runPipeline" class="primary">Запустити розрахунок</button></div>
+  </header>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <nav aria-label="Головна навігація">
+        <button class="nav-item active" data-view="dashboard">▦ <span>Огляд стенда</span></button>
+        <button class="nav-item" data-view="laboratory">⚙ <span>Лабораторія</span></button>
+        <button class="nav-item" data-view="srim">⌁ <span>Калькулятор SRIM / TRIM</span></button>
+        <button class="nav-item" data-view="analysis">◒ <span>Аналіз сигналу</span></button>
+        <button class="nav-item" data-view="experiments">▤ <span>Експерименти</span></button>
+        <button class="nav-item" data-view="reference">⌘ <span>Довідник і налаштування</span></button>
+      </nav>
+      <div class="sidebar-foot"><span class="pulse"></span> Локальний розрахунок<br><small>Збереження у браузері</small></div>
+    </aside>
+    <main id="app" class="content" tabindex="-1"></main>
+  </div>
+  <div id="toast" class="toast" role="status"></div>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

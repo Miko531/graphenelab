@@ -1,0 +1,1 @@
+export function parseCsv(text){const lines=text.trim().split(/\r?\n/).filter(Boolean),delimiter=(lines[0].match(/[,;\t]/)||[','])[0],rows=lines.map(line=>line.split(delimiter).map(v=>Number(v.trim())));return {delimiter,headers:lines[0].split(delimiter),rows:rows.slice(1).filter(r=>r.every(Number.isFinite))}}

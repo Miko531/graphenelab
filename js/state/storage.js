@@ -1,0 +1,2 @@
+const KEY='graphenelab-experiments-v1';
+export const storage={list(){try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(error){console.error('GrapheneLab storage read failed',error);return[]}},save(item){const all=this.list().filter(x=>x.id!==item.id);all.unshift(item);localStorage.setItem(KEY,JSON.stringify(all));return all},remove(id){const all=this.list().filter(x=>x.id!==id);localStorage.setItem(KEY,JSON.stringify(all));return all}};

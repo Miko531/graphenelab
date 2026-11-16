@@ -1,0 +1,2 @@
+import {gfetCurrent} from './gfetModel.js';import {generateNoise} from './noiseModel.js';
+export function generateSignal(params={}){const N=Math.max(1,Math.floor(params.N??2048)),fs=params.fs??1000,noise=generateNoise(params),base=gfetCurrent(params.vg??0,params),out=new Float64Array(N);for(let i=0;i<N;i++){const t=i/fs,pulse=t>(params.delay??.2)&&t<(params.delay??.2)+(params.exposure??.5)?params.pulse??0:0;out[i]=base+pulse+noise[i]+(params.hum??0)*Math.sin(2*Math.PI*(params.humHz??50)*t)}return {data:out,fs,base};}
